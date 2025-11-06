@@ -24,10 +24,13 @@ class TestRomanConverter(unittest.TestCase):
 
     def test_invalid_input(self):
         with self.assertRaises(ValueError):
-            RomanConverter.roman_to_int("ABC")
-
+            RomanConverter.roman_to_int("ABC")  # Invalid characters
         with self.assertRaises(ValueError):
-            RomanConverter.roman_to_int("VX")
+            RomanConverter.roman_to_int("VX")   # Invalid order
+        with self.assertRaises(ValueError):
+            RomanConverter.roman_to_int("IIII") # Invalid repetition
+        with self.assertRaises(ValueError):
+            RomanConverter.roman_to_int("")     # Empty string
 
 if __name__ == "__main__":
     unittest.main()
